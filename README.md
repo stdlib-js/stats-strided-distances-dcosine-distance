@@ -53,32 +53,14 @@ where `S_C` is the [cosine similarity][wikipedia-cosine-similarity] and `A_i` an
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/stats-strided-distances-dcosine-distance
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var dcosineDistance = require( '@stdlib/stats-strided-distances-dcosine-distance' );
+import dcosineDistance from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-strided-distances-dcosine-distance@deno/mod.js';
 ```
 
 #### dcosineDistance( N, x, strideX, y, strideY )
@@ -86,7 +68,7 @@ var dcosineDistance = require( '@stdlib/stats-strided-distances-dcosine-distance
 Computes the cosine distance between two double-precision floating-point strided arrays.
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 var x = new Float64Array( [ 4.0, 2.0, -3.0, 5.0, -1.0 ] );
 var y = new Float64Array( [ 2.0, 6.0, -1.0, -4.0, 8.0 ] );
@@ -106,7 +88,7 @@ The function has the following parameters:
 The `N` and stride parameters determine which elements in the strided arrays are accessed at runtime. For example, to calculate the cosine distance between every other value in `x` and the first `N` elements of `y` in reverse order,
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 var x = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float64Array( [ 1.0, 1.0, 1.0, 1.0, 1.0, 1.0 ] );
@@ -120,7 +102,7 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 <!-- eslint-disable stdlib/capitalized-comments -->
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 // Initial arrays...
 var x0 = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -139,7 +121,7 @@ var z = dcosineDistance( 3, x1, 1, y1, 1 );
 Computes the cosine distance between two double-precision floating-point strided arrays using alternative indexing semantics.
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 var x = new Float64Array( [ 4.0, 2.0, -3.0, 5.0, -1.0 ] );
 var y = new Float64Array( [ 2.0, 6.0, -1.0, -4.0, 8.0 ] );
@@ -156,7 +138,7 @@ The function has the following additional parameters:
 While [`typed array`][mdn-typed-array] views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to calculate the cosine distance between every other element in `x` starting from the second element with the last 3 elements in `y` in reverse order
 
 ```javascript
-var Float64Array = require( '@stdlib/array-float64' );
+import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
 
 var x = new Float64Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
 var y = new Float64Array( [ 7.0, 8.0, 9.0, 10.0, 11.0, 12.0 ] );
@@ -186,8 +168,8 @@ var z = dcosineDistance.ndarray( 3, x, 2, 1, y, -1, y.length-1 );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
-var dcosineDistance = require( '@stdlib/stats-strided-distances-dcosine-distance' );
+import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
+import dcosineDistance from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-strided-distances-dcosine-distance@deno/mod.js';
 
 var opts = {
     'dtype': 'float64'
@@ -208,139 +190,7 @@ console.log( out );
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/stats/strided/distances/dcosine_distance.h"
-```
-
-#### stdlib_strided_dcosine_distance( N, \*X, strideX, \*Y, strideY )
-
-Computes the cosine distance between two double-precision floating-point strided arrays.
-
-```c
-const double x[] = { 4.0, 2.0, -3.0, 5.0, -1.0 };
-const double y[] = { 2.0, 6.0, -1.0, -4.0, 8.0 };
-
-double v = stdlib_strided_dcosine_distance( 5, x, 1, y, 1 );
-// returns ~1.061
-```
-
-The function accepts the following arguments:
-
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **X**: `[in] double*` first input array.
--   **strideX**: `[in] CBLAS_INT` stride length of `X`.
--   **Y**: `[in] double*` second input array.
--   **strideY**: `[in] CBLAS_INT` stride length of `Y`.
-
-```c
-double stdlib_strided_dcosine_distance( const CBLAS_INT N, const double *X, const CBLAS_INT strideX, const double *Y, const CBLAS_INT strideY );
-```
-
-<!--lint disable maximum-heading-length-->
-
-#### stdlib_strided_dcosine_distance_ndarray( N, \*X, strideX, offsetX, \*Y, strideY, offsetY )
-
-<!--lint enable maximum-heading-length-->
-
-Computes the cosine distance between two double-precision floating-point strided arrays using alternative indexing semantics.
-
-```c
-const double x[] = { 4.0, 2.0, -3.0, 5.0, -1.0 };
-const double y[] = { 2.0, 6.0, -1.0, -4.0, 8.0 };
-
-double v = stdlib_strided_dcosine_distance_ndarray( 5, x, -1, 4, y, -1, 4 );
-// returns ~1.061
-```
-
-The function accepts the following arguments:
-
--   **N**: `[in] CBLAS_INT` number of indexed elements.
--   **X**: `[in] double*` first input array.
--   **strideX**: `[in] CBLAS_INT` stride length of `X`.
--   **offsetX**: `[in] CBLAS_INT` starting index for `X`.
--   **Y**: `[in] double*` second input array.
--   **strideY**: `[in] CBLAS_INT` stride length of `Y`.
--   **offsetY**: `[in] CBLAS_INT` starting index for `Y`.
-
-```c
-double stdlib_strided_dcosine_distance_ndarray( const CBLAS_INT N, const double *X, const CBLAS_INT strideX, const CBLAS_INT offsetX, const double *Y, const CBLAS_INT strideY, const CBLAS_INT offsetY );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/stats/strided/distances/dcosine_distance.h"
-#include <stdio.h>
-
-int main( void ) {
-    // Create strided arrays:
-    const double x[] = { 1.0, -2.0, 3.0, -4.0, 5.0, -6.0, 7.0, -8.0 };
-    const double y[] = { 1.0, -2.0, 3.0, -4.0, 5.0, -6.0, 7.0, -8.0 };
-
-    // Specify the number of elements:
-    const int N = 8;
-
-    // Specify strides:
-    const int strideX = 1;
-    const int strideY = -1;
-
-    // Compute the cosine distance between `x` and `y`:
-    double c = stdlib_strided_dcosine_distance( N, x, strideX, y, strideY );
-
-    // Print the result:
-    printf( "cosine distance: %lf\n", c );
-
-    // Compute the cosine distance between `x` and `y` with offsets:
-    c = stdlib_strided_dcosine_distance_ndarray( N, x, strideX, 0, y, strideY, N-1 );
-
-    // Print the result:
-    printf( "cosine distance: %lf\n", c );
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -359,7 +209,7 @@ int main( void ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -422,7 +272,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/stats-strided-distances-dcosine-distance/main/LICENSE
 
-[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64
+[@stdlib/array/float64]: https://github.com/stdlib-js/array-float64/tree/deno
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
