@@ -2,6 +2,50 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-05-05)
+
+<section class="bug-fixes">
+
+### Bug Fixes
+
+-   [`a65e1fd`](https://github.com/stdlib-js/stdlib/commit/a65e1fd9f921616b23244200dc09c0f87981a1c5) - add suffix wrappers and replace inline NaN literal [(#11947)](https://github.com/stdlib-js/stdlib/pull/11947)
+
+</section>
+
+<!-- /.bug-fixes -->
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`a65e1fd`](https://github.com/stdlib-js/stdlib/commit/a65e1fd9f921616b23244200dc09c0f87981a1c5) - **fix:** add suffix wrappers and replace inline NaN literal [(#11947)](https://github.com/stdlib-js/stdlib/pull/11947) _(by Nakul Krishnakumar)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 1 person contributed to this release. Thank you to this contributor:
+
+-   Nakul Krishnakumar
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.0.1">
 
 ## 0.0.1 (2026-02-07)
